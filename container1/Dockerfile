@@ -26,7 +26,7 @@ MAINTAINER Willian Silva <willian.silva@concretesolutions.com.br>
 
 # Run a command during build
 RUN apt-get update
-RUN apt-get install apache2 git -y
+RUN apt-get install apache2 git discount -y
 RUN rm -rf /var/www/html/
 ADD getrepo.sh /
 
