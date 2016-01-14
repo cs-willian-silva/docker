@@ -28,13 +28,13 @@ MAINTAINER Willian Silva <willian.silva@concretesolutions.com.br>
 RUN apt-get update
 RUN apt-get install apache2 git -y
 RUN rm -rf /var/www/html/
-RUN git clone https://github.com/RootService/website.git /var/www/html/
+ADD getrepo.sh /
 
 # Expose some port
 EXPOSE 80
 
 # Pass a parameter to entrypoing command
-CMD apache2ctl -D FOREGROUND
+CMD bash /getrepo.sh && apache2ctl -D FOREGROUND
 
 # Set default container command
 #ENTRYPOINT ["/usr/bin/command"]
